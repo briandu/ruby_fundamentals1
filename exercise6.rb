@@ -1,39 +1,28 @@
-# # array = [gets.chomp]
-# #
-# # puts "add a number"
-# # yn = gets.chomp
-# # puts "Your new number is #{array.count}"
-#
-# puts "Please enter the text"
-# array = []
-# while line = gets
-#   break if line.chomp =~ /N/ #exit when 'N' is entered
-#   puts "Entered: #{line.chomp}"
-#   array << line.chomp
-# end
-#
-# puts "Finished with result: #{array.}" #joining all the elements with a hyphen
+puts "Welcome! Would you like to walk or run? Type 'go home' at any time if you want to end session."
+distance = 0
+energy = 2
 
-# array = [1, 2, 3, 4]
-#
-# puts "number?"
-# input = gets.chomp.to_i
-# array << input
-# puts array.reduce(:+)
+  while distance < 30 && energy > 0
+    input = gets.chomp
 
+    if input == "go home"
+      puts "Have a nice day!"
 
-# #This sums and prints array elements
+    elsif input == "walk"
+      distance = distance + 1
+      energy = energy + 1
+      puts "Your total distance is #{distance}km and your energy level is at #{energy}. Would you like to walk or run?"
 
+    elsif input == "run"
+      distance = distance + 5
+      energy = energy - 1
+      puts "Your total distance is #{distance}km and your energy level is at #{energy}. Would you like to walk or run?"
 
-array = [1, 2, 3, 4]
+    else
+      puts "ERROR. Invalid input."
 
-puts "Welcome! Would you like to walk or run? Type 'stop' at any time if you want to end session."
-start_input = gets
+    end
 
-until start_input == "stop"
+  end
 
-  input = gets
-  print input
-  array << input.to_i
-  puts array.reduce(:+)
-end
+puts "Take a break! You're overdoing it."
